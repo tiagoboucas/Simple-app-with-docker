@@ -4,7 +4,7 @@ import '../App.css';
 const Navigation = () => {
   return (
     <div>
-      <nav>
+      <nav data-testid="navbar">
         <ul className='d-flex flex-row navigation-list py-3 py-sm-5'>
           <li className='navigation-link'>
             <NavLink

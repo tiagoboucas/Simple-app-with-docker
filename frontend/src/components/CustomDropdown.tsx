@@ -24,7 +24,7 @@ const CustomDropdown: React.FC<CustomDropdownProps>  = observer(({ number }) => 
     useEffect(() => {
         const getColors = async () => {
             const response = await fetchColors(search);
-            setColors(response?.items || []);
+            setColors(response?.items ?? []);
         };
         search.length > 0 ? getColors() : setColors([]);
     }, [search]);
@@ -74,6 +74,7 @@ const CustomDropdown: React.FC<CustomDropdownProps>  = observer(({ number }) => 
         <div id={`dropdown-menu-${number}`} className='input-group mb-3' ref={dropdownRef}>
             <input
                 id={`input-search-${number}`}
+                data-testid='custom-input'
                 type='text'
                 className='form-control input-color'
                 autoComplete="off"
@@ -83,7 +84,7 @@ const CustomDropdown: React.FC<CustomDropdownProps>  = observer(({ number }) => 
                 onChange={handleSearchChange}
                 aria-label='Search for colors'
             />
-            <div className='dropdown-menu w-100' role='menu'>
+            <div className='dropdown-menu w-100' data-testid="dropdown-menu" role='menu'>
                 {search.length > 0 && colors.length > 0 ? (
                     <ul className='list-unstyled mb-0'>
                         {colors.map((color, index) => (
