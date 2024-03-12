@@ -17,5 +17,12 @@ def get_colors():
     else:
         return jsonify({ 'items': colors })
 
+@app.after_request
+def add_cors_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, OPTIONS'
+    return response
+
 if __name__ == '__main__':
     app.run(debug=True, host='localhost')
