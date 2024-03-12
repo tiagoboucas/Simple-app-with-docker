@@ -1,69 +1,82 @@
 :root {
-  --navbar-color: #2596be;
-  --link-color: #386af3;
-  --selected-color: #beeaff;
+	--navbar-color: #2596be;
+	--link-color: #386af3;
+	--selected-color: #beeaff;
 }
 
 .App {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  overflow: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	overflow: auto;
 }
 
 .app-header {
-  background-color: var(--navbar-color);
-  height: 80px;
-  display: flex;
-  color: black;
-  font-size: 20px;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
+	background-color: var(--navbar-color);
+	height: 80px;
+	display: flex;
+	color: black;
+	font-size: 20px;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
 }
 
 .navigation-list {
-  gap: 25px;
-  list-style: none;
-  padding-left: 0px;
+	gap: 25px;
+	list-style: none;
+	padding-left: 0px;
 }
 
 .navigation-link a.active {
-  font-weight: bold;
-  color: black;
-  text-decoration: none;
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
 }
 
 .navigation-link a {
-  color: var(--link-color);
-  font-size: 20px;
+	color: var(--link-color);
+	font-size: 20px;
 }
 
 .welcome-message {
-  font-size: 2rem;
-  max-width: 700px;
-  @media screen and (min-width: 991px){
-    font-size: 5rem;
-  }
+	font-size: 2rem;
+	max-width: 700px;
+	@media screen and (min-width: 991px) {
+		font-size: 5rem;
+	}
 }
 
 .dropdown-menu {
-  margin-top: 45px;
-  margin-left: 0px;
-  border-radius: 0px;
-  border-color: black;
+  margin-top: 5px;
+	border-radius: 0px;
+	border-color: black;
+  position: relative;
 }
 
- .form-control {
-  border-radius: 0px;
-  border-color: black;
- }
+.input-color {
+	border-radius: 0px;
+	border-color: black;
+  font-size: 20px;
+}
 
- .dropdown-size {
-  width: 100%;
-  @media screen and (min-width: 991px){
-    width: 50%;
-  }
- }
+.input-color::placeholder {
+  color: black;
+}
+
+.dropdown-size {
+	width: 100%;
+	@media screen and (min-width: 991px) {
+		width: 50%;
+	}
+}
+
+.dropdown-item {
+	color: black;
+}
+
+.dropdown-item:hover {
+  background-color: var(--selected-color);
+}

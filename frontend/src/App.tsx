@@ -4,10 +4,12 @@ import Navigation from './components/Navigation';
 import MainScreen from './components/MainScreen';
 import SetColor from './components/SetColor';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { observer } from 'mobx-react';
+import colorStore from './stores/ColorStore';
 
-function App() {
+const App: React.FC = observer(() => {
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor: colorStore.backgroundColor }}>
       <BrowserRouter>
         <Header text="Theme picker" />
         <div className='container'>
@@ -21,6 +23,6 @@ function App() {
       </BrowserRouter>
     </div>
   );
-}
+});
 
 export default App;
