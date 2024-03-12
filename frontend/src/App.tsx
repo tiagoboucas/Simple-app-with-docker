@@ -6,10 +6,11 @@ import SetColor from './components/SetColor';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { observer } from 'mobx-react';
 import colorStore from './stores/ColorStore';
+import { blendColors } from './utils/ColorUtils';
 
 const App: React.FC = observer(() => {
   return (
-    <div className="App" style={{ backgroundColor: colorStore.backgroundColor }}>
+    <div className="App" style={{ backgroundColor: blendColors('#ffffff', colorStore.backgroundColor) }}>
       <BrowserRouter>
         <Header text="Theme picker" />
         <div className='container'>

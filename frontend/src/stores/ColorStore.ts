@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
 class ColorStore {
-	backgroundColor: string = "white";
+	backgroundColor: string = "#ffffff";
 
 	constructor() {
 		makeAutoObservable(this);
