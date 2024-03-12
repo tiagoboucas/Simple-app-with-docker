@@ -1,4 +1,5 @@
 import '../App.css';
+import CustomDropdown from './CustomDropdown';
 
 interface SetColorProps {
   number: number;
@@ -6,8 +7,10 @@ interface SetColorProps {
 
 const SetColor: React.FC<SetColorProps> = ({ number }) => {
   return (
-    <div>
-     Set Color #{ number }
+    <div className='d-flex'>
+      <div className='m-auto dropdown-size'>
+        <CustomDropdown />
+      </div>
     </div>
   );
 }
