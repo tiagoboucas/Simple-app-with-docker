@@ -34,7 +34,6 @@ class ColorStore {
 				this.colors[1]?.rgb
 			);
 		else this.backgroundColor = INITIAL_COLOR;
-		console.log("colorStore", this.backgroundColor, this.colors);
 	}
 }
 
