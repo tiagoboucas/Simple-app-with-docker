@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
 import Navigation from "./Navigation";
 import Header from "./Header";
-import { observer } from 'mobx-react';
-import colorStore from '../stores/ColorStore';
+import { observer } from "mobx-react";
+import colorStore from "../stores/ColorStore";
 
 const Layout = observer(() => {
 	return (
