@@ -6,7 +6,7 @@ interface Color {
 	rgb: string;
 }
 
-const INITIAL_COLOR = process.env.REACT_APP_INITIAL_COLOR;
+const INITIAL_COLOR = process.env.REACT_APP_INITIAL_COLOR ?? "#ffffff";
 
 class ColorStore {
 	backgroundColor: string = INITIAL_COLOR;
