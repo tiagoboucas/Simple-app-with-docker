@@ -1,3 +1,9 @@
+:root {
+  --navbar-color: #2596be;
+  --link-color: #386af3;
+  --selected-color: #beeaff;
+}
+
 .App {
   position: fixed;
   top: 0;
@@ -8,7 +14,7 @@
 }
 
 .app-header {
-  background-color: blue;
+  background-color: var(--navbar-color);
   height: 80px;
   display: flex;
   color: black;
@@ -31,7 +37,8 @@
 }
 
 .navigation-link a {
-  color: blue;
+  color: var(--link-color);
+  font-size: 20px;
 }
 
 .welcome-message {
@@ -41,3 +48,22 @@
     font-size: 5rem;
   }
 }
+
+.dropdown-menu {
+  margin-top: 45px;
+  margin-left: 0px;
+  border-radius: 0px;
+  border-color: black;
+}
+
+ .form-control {
+  border-radius: 0px;
+  border-color: black;
+ }
+
+ .dropdown-size {
+  width: 100%;
+  @media screen and (min-width: 991px){
+    width: 50%;
+  }
+ }
