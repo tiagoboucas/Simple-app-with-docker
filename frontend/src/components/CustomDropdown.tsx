@@ -45,13 +45,17 @@ const CustomDropdown = observer(() => {
         setSearch(event.target.value);
     };
 
+    const handleChangeColor = (color: string) => {
+        setSelectedColor(color);
+        colorStore.setBackgroundColor(color);
+    };
+
     const handleInputFocus = () => {
         setIsInputFocused(true);
         setSearch("");
     };
 
     const handleClickColor = (color: Color) => {
-        setSelectedColor(color.rgb);
         handleChangeColor(color.rgb);
         setPlaceholder(color.name);
         clearSearch();
@@ -60,10 +64,6 @@ const CustomDropdown = observer(() => {
     const clearSearch = () => {
         setSearch("");
         setIsInputFocused(false);
-    };
-
-    const handleChangeColor = (color: string) => {
-        colorStore.setBackgroundColor(color);
     };
 
     return (
