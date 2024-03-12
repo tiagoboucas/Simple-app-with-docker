@@ -1,29 +1,37 @@
 import './App.css';
-import Header from './components/Header';
-import Navigation from './components/Navigation';
-import MainScreen from './components/MainScreen';
-import SetColor from './components/SetColor';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainScreen from './Routes/MainScreen';
+import SetColor from './Routes/SetColor';
 import { observer } from 'mobx-react';
-import colorStore from './stores/ColorStore';
-import { blendColors } from './utils/ColorUtils';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom"
+import Layout from './components/Layout';
 
 const App: React.FC = observer(() => {
+  const router = createBrowserRouter([
+    {
+      element: <Layout />,
+      children: [
+        {
+          path: "/",
+          element: <MainScreen />,
+        },
+        {
+          path: "/color-1",
+          element: <SetColor key="/color-1" number={0} />,
+        },
+        {
+          path: "/color-2",
+          element: <SetColor key="/color-2" number={1} />,
+        },
+      ],
+    },
+  ])
+
   return (
-    <div className="App" style={{ backgroundColor: blendColors('#ffffff', colorStore.backgroundColor) }}>
-      <BrowserRouter>
-        <Header text="Theme picker" />
-        <div className='container'>
-          <Navigation />
-          <Routes>
-            <Route path="/" element={<MainScreen />} />
-            <Route path="/color-1" element={<SetColor number={1} />} />
-            <Route path="/color-2" element={<SetColor number={2} />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </div>
-  );
+      <RouterProvider router={router} />
+  )
 });
 
 export default App;

@@ -9,11 +9,15 @@ interface Color {
     rgb: string;
 }
 
-const CustomDropdown = observer(() => {
+interface CustomDropdownProps {
+    number: number;
+};
+
+const CustomDropdown: React.FC<CustomDropdownProps>  = observer(({ number }) => {
     const [colors, setColors] = useState<Color[]>([]);
     const [search, setSearch] = useState("");
-    const [placeholder, setPlaceholder] = useState("");
-    const [selectedColor, setSelectedColor] = useState("");
+    const [placeholder, setPlaceholder] = useState(colorStore.colors[number]?.name ?? "");
+    const [selectedColor, setSelectedColor] = useState(colorStore.colors[number]?.name ?? "");
     const [isInputFocused, setIsInputFocused] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -45,9 +49,9 @@ const CustomDropdown = observer(() => {
         setSearch(event.target.value);
     };
 
-    const handleChangeColor = (color: string) => {
-        setSelectedColor(color);
-        colorStore.setBackgroundColor(color);
+    const handleChangeColor = (color: Color) => {
+        setSelectedColor(color.name);
+        colorStore.setColorByIndex(number, color);
     };
 
     const handleInputFocus = () => {
@@ -56,7 +60,7 @@ const CustomDropdown = observer(() => {
     };
 
     const handleClickColor = (color: Color) => {
-        handleChangeColor(color.rgb);
+        handleChangeColor(color);
         setPlaceholder(color.name);
         clearSearch();
     };
@@ -67,10 +71,12 @@ const CustomDropdown = observer(() => {
     };
 
     return (
-        <div className='input-group mb-3' ref={dropdownRef}>
+        <div id={`dropdown-menu-${number}`} className='input-group mb-3' ref={dropdownRef}>
             <input
+                id={`input-search-${number}`}
                 type='text'
                 className='form-control input-color'
+                autoComplete="off"
                 value={search}
                 placeholder={placeholder}
                 onFocus={handleInputFocus}
