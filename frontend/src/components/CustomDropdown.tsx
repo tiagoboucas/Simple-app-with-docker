@@ -3,13 +3,9 @@ import { fetchColors } from "../api/api";
 import { observer } from "mobx-react";
 import colorStore from "../stores/ColorStore";
 import "../App.css";
+import { Color } from "../interfaces/types";
 
-interface Color {
-	name: string;
-	rgb: string;
-}
-
-interface CustomDropdownProps {
+export interface CustomDropdownProps {
 	number: number;
 }
 

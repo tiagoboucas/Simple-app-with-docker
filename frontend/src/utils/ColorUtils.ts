@@ -1,11 +1,5 @@
 import hexRgb from "hex-rgb";
-
-interface RGBColor {
-	red: number;
-	green: number;
-	blue: number;
-	alpha?: number;
-}
+import { RGBColor } from "../interfaces/types";
 
 export const blendColors = (color1: string, color2: string): string => {
 	// Convert hex colors to RGB objects

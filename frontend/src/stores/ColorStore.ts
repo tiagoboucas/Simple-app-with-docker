@@ -1,10 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { blendColors } from "../utils/ColorUtils";
-
-interface Color {
-	name: string;
-	rgb: string;
-}
+import { Color } from "../interfaces/types";
 
 const INITIAL_COLOR = process.env.REACT_APP_INITIAL_COLOR ?? "#ffffff";
 
