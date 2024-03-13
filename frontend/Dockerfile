@@ -1,13 +1,13 @@
-FROM node:14-alpine
-
-WORKDIR /app
-
-COPY package*.json ./
-
-RUN npm install
+FROM node
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json ./
 COPY . .
-RUN npm run build
+RUN yarn install
+COPY . .
+
+RUN yarn build
+
+# start app
+CMD ["yarn", "start"]
 
 EXPOSE 3000
-
-CMD ["npm", "start"]

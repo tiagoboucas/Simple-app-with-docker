@@ -54,6 +54,8 @@
 	border-radius: 0px;
 	border-color: black;
   position: relative;
+	max-height: 400px;
+	overflow: auto;
 }
 
 .input-color {

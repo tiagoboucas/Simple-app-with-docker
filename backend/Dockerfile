@@ -1,15 +1,10 @@
-FROM node:14
-
-WORKDIR /app
-
-COPY package*.json ./
-
+FROM node
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json ./
+COPY . .
 RUN npm install
-
 COPY . .
 
-RUN chown -R node:node /app
+CMD ["npm", "run", "start"]
 
 EXPOSE 4000
-
-CMD ["node", "app.js"]
