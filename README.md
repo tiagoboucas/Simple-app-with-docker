@@ -1,4 +1,4 @@
-# Textkernel Frontend Assignment
+# Simple-app-with-docker
 
 ## Theme Picker Application
 
